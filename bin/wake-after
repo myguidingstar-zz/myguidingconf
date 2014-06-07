@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+  then 
+    echo 'Wake the machine up after x hour(s)'
+    echo Usage:
+    echo "$0 1.5"
+    echo ' -> wake up after one hour and a half'
+    echo 'Note: requires sudo'
+    exit 0
+fi
+
+sudo rtcwake -u -m no -s `echo $((3600 * $1)) | sed 's/\.//g'`
