@@ -1,0 +1,48 @@
+[cola]
+	fontdiff = Droid Sans Mono,9,-1,5,50,0,0,0,0,0
+[merge]
+	summary = true
+	stat = true
+	tool = meld
+[color]
+	ui = true
+[core]
+	editor = nano
+[alias]
+	st = status
+	feature  = flow feature
+	release = flow release
+	hotfix = flow hotfix
+	support = flow support
+	ca = commit -am
+	ap = commit --amend -a
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	who = shortlog -s --
+	undo=reset --hard
+	uncommit=reset --soft 'HEAD^'
+	llog = log --date=local
+	changes=diff --name-status -r
+	diffstat=diff --stat -r
+	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; ec `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[diff]
+	renames = copies
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
+[rerere]
+	enabled = true
+[push]
+	default = simple
+[instaweb]
+	port = 4321
+	browser = firefox
