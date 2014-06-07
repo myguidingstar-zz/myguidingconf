@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+  then 
+    echo Alert user after a specific period.
+    echo Useful for pomodoro technique.
+    echo Usage:
+    echo "$0 30d9h50s300ms clean the house"
+    echo 'Things will be tracked at ~/.microtasks'
+    exit 0
+fi
+
+echo `date` $@ >> ~/.microtasks
+msg="${@:2}"
+echo "Starting $msg" | festival --tts
+utimer -c $1
+echo "Finished $msg" | festival --tts
+zenity --info --text="$msg"
