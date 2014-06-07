@@ -1,0 +1,11 @@
+roxterm
+dmenu
+i3wm
+racket
+wicd
+parcellite
+utimer
+festival
+zenity
+pandoc
+
