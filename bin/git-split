@@ -1,0 +1,32 @@
+#!/bin/bash
+# Original:
+# http://www.geekaholic.org/2010/02/splitting-git-repo.html
+
+cwd="$PWD"
+if [ -z "$1" ] || [ -z "$2" ]
+   then
+        echo 'Missing argument(s)'
+        echo
+        echo 'Usage:'
+        echo 'git split parent-dir child-dir'
+        echo '  where:'
+        echo ' - parent-dir'
+        echo '  + is the git repo directory you want to split'
+        echo '  + located in curent working directory'
+        echo
+        echo ' - child-dir'
+        echo '  + is the sub directory inside parent-dir'
+        echo '  + can be a multi-level path, eg foo/bar'
+        exit 1
+fi
+
+git clone --no-hardlinks "$1" "$2"
+cd "$2"
+git filter-branch --subdirectory-filter "$2" HEAD  -- --all
+git reset --hard
+git gc --aggressive
+git prune
+git remote rm origin
+cd "$cwd"
+cd "$1"
+git filter-branch --tree-filter "rm -rf \"$2\"" --prune-empty HEAD
