@@ -1,0 +1,9 @@
+#!/bin/bash
+pgrep wicd-client && echo "wicd-client is running" || wicd-gtk &
+pgrep mate-power-manager && echo "mate-power-manager is running" || mate-power-manager &
+pgrep stardict && echo "stardict is running" || stardict &
+pgrep parcellite && echo "parcellite is running" || parcellite &
+pgrep mate-volume-control-applet && echo "mate-volume-control-applet is running" || mate-volume-control-applet &
+# ibus-daemon --replace &
+my-keyboard
+exit
