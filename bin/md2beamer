@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ "$1" == "" ]
+  then 
+		echo Converts markdown to pdf presentation via pandoc/beamer.
+		echo "Usage: $0 some-file.md"
+    exit 0
+fi
+pandoc -t beamer "${1}" -o "{1%%.md}.pdf"
