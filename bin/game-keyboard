@@ -1,0 +1,4 @@
+# Games often works well with Qwerty layout
+# However, it's better with my xmodmap (Re-map Ctrl/Alt etc)
+qwerty
+xmodmap ~/.myxmodmap
