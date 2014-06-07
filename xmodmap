@@ -1,0 +1,58 @@
+!old keys
+!xmodmap -pke |grep Something
+
+!keycode  50 = Shift_L ISO_Prev_Group Shift_L ISO_Prev_Group
+!keycode  62 = Shift_R ISO_Next_Group Shift_R ISO_Next_Group
+
+!keycode  66 = Caps_Lock NoSymbol Caps_Lock
+!keycode  22 = BackSpace BackSpace BackSpace BackSpace NoSymbol NoSymbol Terminate_Server
+!keycode  37 = Control_L NoSymbol Control_L
+!keycode 133 = Super_L NoSymbol Super_L
+!keycode  64 = Alt_L ISO_Prev_Group Alt_L ISO_Prev_Group
+
+!Alt_R
+!keycode 108 = Mode_switch ISO_Next_Group Mode_switch ISO_Next_Group
+!keycode 203 = Mode_switch NoSymbol Mode_switch
+
+!keycode 135 = Menu NoSymbol Menu
+!keycode 105 = Control_R NoSymbol Control_R
+
+!new keys
+
+!Double Shift makes Caps_Lock
+keycode  50 = Shift_L Caps_Lock Shift_L Caps_Lock
+keycode  62 = Shift_R Caps_Lock Shift_R Caps_Lock
+
+keycode  66 = BackSpace
+keycode  22 = Delete
+
+keycode  37 = Super_L
+keycode 133 = Alt_L
+keycode  64 = Control_L
+
+!Alt_R
+keycode 108 = Control_R
+!keycode 203 = Control_R
+keycode 135 = Alt_R
+keycode 105 = Menu
+
+!xmodmap -pke > modmap
+!xmodmap -pm >> modmap
+
+!shift       Shift_L (0x32),  Shift_R (0x3e)
+!lock        Caps_Lock (0x42)
+!control     Control_L (0x25),  Control_R (0x69)
+!mod1        Alt_L (0x40),  Meta_L (0xcd)
+!mod2        Num_Lock (0x4d)
+!mod3
+!mod4        Super_L (0x85),  Super_L (0xce),  Hyper_L (0xcf)
+!mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
+
+clear lock
+clear control
+clear mod1
+clear mod4
+clear mod5
+add Control = Control_L Control_R
+add mod1 = Alt_L Alt_R
+add mod4 = Super_L Super_R
