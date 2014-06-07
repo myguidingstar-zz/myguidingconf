@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Should be assigned to some keyboard shortcut
+
+thing=`i3-input -P "I'm doing this for 25 minutes: " | sed -n '/command = /s/command = //p'`
+
+if [ "$1" != "" ]
+  then
+		ta 25m $thing
+fi
