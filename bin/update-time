@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Updates time using ntpd. Also synchronizes to hardware clock
+sudo ntpd -qg
+sudo hwclock --systohc
