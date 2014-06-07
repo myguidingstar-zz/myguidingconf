@@ -4,7 +4,7 @@
 
 thing=`i3-input -P "I'm doing this for 25 minutes: " | sed -n '/command = /s/command = //p'`
 
-if [ "$1" != "" ]
+if [ "$thing" != "" ]
   then
-		ta 25m $thing
+     ta 25m $thing
 fi
