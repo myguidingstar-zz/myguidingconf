@@ -1,0 +1,4 @@
+#!/bin/sh
+# Turns off screen. Move the mouse or press any key to turn on again.
+xset dpms force off
+xset dpms force off
